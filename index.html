@@ -2,85 +2,315 @@ training: {
     icon: '🎓',
     title: 'PRB Site Training Landscape - Facilitated by PD&E',
     content: `
+        <style>
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            }
+            
+            .info-card {
+                padding: 20px;
+                border-radius: 15px;
+                border-left: 5px solid;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .info-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+            
+            .info-card .icon {
+                font-size: 2em;
+                margin-bottom: 10px;
+                display: block;
+            }
+            
+            .info-card .label {
+                font-size: 0.85em;
+                color: #666;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+            
+            .info-card .value {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #333;
+                margin: 0;
+            }
+            
+            /* สีต่างๆ สำหรับแต่ละประเภท */
+            .card-blue { background: #e3f2fd; border-color: #2196f3; }
+            .card-purple { background: #f3e5f5; border-color: #9c27b0; }
+            .card-pink { background: #fce4ec; border-color: #e91e63; }
+            .card-yellow { background: #fff9c4; border-color: #ffc107; }
+            .card-orange { background: #fff3e0; border-color: #ff9800; }
+            .card-green { background: #e8f5e9; border-color: #4caf50; }
+            .card-cyan { background: #e0f7fa; border-color: #00bcd4; }
+            .card-beige { background: #fff8e1; border-color: #ffa726; }
+            
+            .section-title {
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #1565c0;
+                margin: 30px 0 20px 0;
+                padding-bottom: 10px;
+                border-bottom: 3px solid #2196f3;
+            }
+
+            .training-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.85em;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+                background: white;
+                margin: 20px 0;
+            }
+            .training-table th {
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+                color: white;
+                padding: 12px 8px;
+                text-align: center;
+                font-weight: 600;
+                border: 1px solid #0d47a1;
+                font-size: 0.9em;
+            }
+            .training-table td {
+                padding: 10px 8px;
+                border: 1px solid #ddd;
+                vertical-align: top;
+            }
+            .category-cell {
+                background: #e3f2fd;
+                font-weight: bold;
+                text-align: center;
+                color: #0d47a1;
+            }
+            .ci-skills { background: #e3f2fd; }
+            .fundamental { background: #fff3e0; }
+            .functional { background: #f3e5f5; }
+            .soft-skills { background: #e8f5e9; }
+            .confirmed {
+                background: #a5d6a7 !important;
+                font-weight: 600;
+            }
+            .tentative {
+                background: #fff59d !important;
+                font-weight: 600;
+            }
+            .done {
+                background: #e0e0e0 !important;
+            }
+            .month-header {
+                background: #ff9800 !important;
+                color: white !important;
+            }
+            @media (max-width: 768px) {
+                .training-table {
+                    font-size: 0.75em;
+                }
+                .training-table th, .training-table td {
+                    padding: 6px 4px;
+                }
+            }
+        </style>
+
         <div class="service-info">
-            <h3>📋 ตารางหลักสูตรอบรมประจำปี CY2026 & FY2027</h3>
+            <h2 style="color: #1565c0;">📋 ภาพรวมหลักสูตรอบรม CY2026 & FY2027</h2>
             <p>Training Landscape ครอบคลุมทั้ง CI Skills, Hard Skills และ Soft Skills สำหรับพนักงานทุกระดับ</p>
         </div>
 
-        <div style="overflow-x: auto; margin: 20px 0;">
-            <style>
-                .training-table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    font-size: 0.85em;
-                    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-                    background: white;
-                }
-                .training-table th {
-                    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-                    color: white;
-                    padding: 12px 8px;
-                    text-align: center;
-                    font-weight: 600;
-                    border: 1px solid #0d47a1;
-                    font-size: 0.9em;
-                }
-                .training-table td {
-                    padding: 10px 8px;
-                    border: 1px solid #ddd;
-                    vertical-align: top;
-                }
-                .category-cell {
-                    background: #e3f2fd;
-                    font-weight: bold;
-                    text-align: center;
-                    color: #0d47a1;
-                }
-                .ci-skills {
-                    background: #e3f2fd;
-                }
-                .fundamental {
-                    background: #fff3e0;
-                }
-                .functional {
-                    background: #f3e5f5;
-                }
-                .soft-skills {
-                    background: #e8f5e9;
-                }
-                .confirmed {
-                    background: #a5d6a7 !important;
-                    font-weight: 600;
-                }
-                .tentative {
-                    background: #fff59d !important;
-                    font-weight: 600;
-                }
-                .done {
-                    background: #e0e0e0 !important;
-                }
-                .month-header {
-                    background: #ff9800 !important;
-                    color: white !important;
-                }
-                .training-link {
-                    color: #1976d2;
-                    text-decoration: none;
-                    font-size: 0.85em;
-                }
-                .training-link:hover {
-                    text-decoration: underline;
-                }
-                @media (max-width: 768px) {
-                    .training-table {
-                        font-size: 0.75em;
-                    }
-                    .training-table th, .training-table td {
-                        padding: 6px 4px;
-                    }
-                }
-            </style>
+        <!-- ข้อมูลภาพรวมแบบ Card -->
+        <div class="info-grid">
+            <div class="info-card card-blue">
+                <span class="icon">📊</span>
+                <div class="label">Total Courses</div>
+                <div class="value">30+ หลักสูตร</div>
+            </div>
+            
+            <div class="info-card card-purple">
+                <span class="icon">🎯</span>
+                <div class="label">CI Skills</div>
+                <div class="value">Kaizen, QCC, LSS</div>
+            </div>
+            
+            <div class="info-card card-orange">
+                <span class="icon">🔧</span>
+                <div class="label">Fundamental</div>
+                <div class="value">SPC, MSA, FMEA, 8D</div>
+            </div>
+            
+            <div class="info-card card-pink">
+                <span class="icon">🤖</span>
+                <div class="label">Functional</div>
+                <div class="value">Automation, Data Analytics</div>
+            </div>
+            
+            <div class="info-card card-green">
+                <span class="icon">💡</span>
+                <div class="label">Soft Skills</div>
+                <div class="value">Leadership, EQ, Strategy</div>
+            </div>
+            
+            <div class="info-card card-cyan">
+                <span class="icon">👥</span>
+                <div class="label">Target</div>
+                <div class="value">All PM Levels</div>
+            </div>
+            
+            <div class="info-card card-yellow">
+                <span class="icon">📅</span>
+                <div class="label">Duration</div>
+                <div class="value">12 Months</div>
+            </div>
+            
+            <div class="info-card card-beige">
+                <span class="icon">🌐</span>
+                <div class="label">Learning Type</div>
+                <div class="value">Classroom + Online</div>
+            </div>
+        </div>
 
+        <!-- หมวดหมู่หลักสูตรแบบ Card -->
+        <h2 class="section-title">🎯 หมวดหมู่หลักสูตร</h2>
+        <div class="info-grid">
+            <div class="info-card card-blue">
+                <span class="icon">🔵</span>
+                <div class="label">CI Skills</div>
+                <div class="value">Continuous Improvement</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    • Kaizen (Per request)<br>
+                    • QCC (Per request)<br>
+                    • Lean Six Sigma GB (HoDs nominated)
+                </p>
+            </div>
+            
+            <div class="info-card card-orange">
+                <span class="icon">🟠</span>
+                <div class="label">Fundamental Hard Skills</div>
+                <div class="value">Quality Foundation</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    • SPC (Feb)<br>
+                    • MSA (Mar)<br>
+                    • FMEA (Apr)<br>
+                    • 8D/RCA (May-Jun)
+                </p>
+            </div>
+            
+            <div class="info-card card-purple">
+                <span class="icon">🟣</span>
+                <div class="label">Functional Hard Skills</div>
+                <div class="value">4IR & Technology</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    • Basic 4IR (Career Explorer)<br>
+                    • Automation (Classroom)<br>
+                    • Data Analytics (Python, ML, AI)<br>
+                    • All available on SharePoint
+                </p>
+            </div>
+            
+            <div class="info-card card-green">
+                <span class="icon">🟢</span>
+                <div class="label">Soft Skills</div>
+                <div class="value">Leadership Development</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    • Analytical Thinking<br>
+                    • Emotional Intelligence (Mar)<br>
+                    • Strategic Management (Mar)<br>
+                    • EmpowerHer Program (Women)
+                </p>
+            </div>
+        </div>
+
+        <!-- วิธีการลงทะเบียน -->
+        <h2 class="section-title">📚 วิธีการลงทะเบียนอบรม</h2>
+        <div class="info-grid">
+            <div class="info-card card-blue">
+                <span class="icon">📝</span>
+                <div class="label">Per Request</div>
+                <div class="value">ขอเปิดตามต้องการ</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    เหมาะสำหรับ Kaizen, QCC, Lean
+                </p>
+            </div>
+            
+            <div class="info-card card-purple">
+                <span class="icon">⏰</span>
+                <div class="label">FIFO</div>
+                <div class="value">First In First Out</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    SPC, MSA, FMEA, 8D/RCA
+                </p>
+            </div>
+            
+            <div class="info-card card-orange">
+                <span class="icon">👔</span>
+                <div class="label">HoDs Nominated</div>
+                <div class="value">หัวหน้าเสนอชื่อ</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    LSS GB, Automation (Specific)
+                </p>
+            </div>
+            
+            <div class="info-card card-green">
+                <span class="icon">🎫</span>
+                <div class="label">Distributed Quota</div>
+                <div class="value">โควต้าจำกัด</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    Soft Skills (PM105-108)
+                </p>
+            </div>
+            
+            <div class="info-card card-cyan">
+                <span class="icon">🌐</span>
+                <div class="label">Career Explorer</div>
+                <div class="value">เรียนออนไลน์</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    Basic 4IR, Data Analytics (ทุกคน)
+                </p>
+            </div>
+        </div>
+
+        <!-- Status Legend -->
+        <h2 class="section-title">🎨 สถานะหลักสูตร</h2>
+        <div class="info-grid">
+            <div class="info-card card-green">
+                <span class="icon">✅</span>
+                <div class="label">Confirmed Plan</div>
+                <div class="value">ยืนยันแล้ว</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    วันที่แน่นอน พร้อมเปิดรับสมัคร
+                </p>
+            </div>
+            
+            <div class="info-card card-yellow">
+                <span class="icon">⏳</span>
+                <div class="label">Tentative Plan</div>
+                <div class="value">อยู่ระหว่างวางแผน</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    กำหนดการเบื้องต้น อาจมีการเปลี่ยนแปลง
+                </p>
+            </div>
+            
+            <div class="info-card card-beige">
+                <span class="icon">✔️</span>
+                <div class="label">Done/Nominated</div>
+                <div class="value">เสร็จแล้ว</div>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                    อบรมเสร็จแล้ว หรือมีการเสนอชื่อแล้ว
+                </p>
+            </div>
+        </div>
+
+        <!-- ตารางแสดงรายละเอียดทั้งหมด -->
+        <h2 class="section-title">📅 ตารางหลักสูตรอบรมประจำปี CY2026 & FY2027</h2>
+        
+        <div style="overflow-x: auto; margin: 20px 0;">
             <table class="training-table">
                 <thead>
                     <tr>
@@ -180,7 +410,7 @@ training: {
                         <td>Workshop is required</td>
                     </tr>
 
-                    <!-- Functional Hard Skills - Basic 4IR -->
+                    <!-- Functional Hard Skills -->
                     <tr>
                         <td rowspan="14" class="category-cell functional">Functional<br>Hard Skills</td>
                         <td><strong>Basic 4IR (All can learn)</strong></td>
@@ -189,8 +419,6 @@ training: {
                         <td colspan="12" class="confirmed">Available all year</td>
                         <td></td>
                     </tr>
-
-                    <!-- Automation -->
                     <tr>
                         <td>Automation (Specific participants)</td>
                         <td>Classroom</td>
@@ -199,28 +427,26 @@ training: {
                         <td>Manage by Group Class Session</td>
                     </tr>
                     <tr>
-                        <td style="padding-left: 15px;">Automation (All can learn)</td>
-                        <td colspan="2" style="text-align: left;">A1 Embedded/Advance Control system</td>
+                        <td style="padding-left: 15px;">A1 Embedded/Advance Control system</td>
                         <td>VDO Recording</td>
-                        <td colspan="12" class="confirmed">Career Explorer</td>
+                        <td>Career Explorer</td>
+                        <td colspan="12" class="confirmed">SharePoint</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">A2 Network system and Big Data</td>
+                        <td style="padding-left: 15px;">A2 Network system and Big Data</td>
                         <td>VDO Recording</td>
-                        <td colspan="12" class="confirmed">Career Explorer</td>
-                        <td><a href="#" class="training-link">Automation Module2</a></td>
+                        <td>Career Explorer</td>
+                        <td colspan="12" class="confirmed">SharePoint</td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">A3 Advance Manufacturing Platform</td>
+                        <td style="padding-left: 15px;">A3 Advance Manufacturing Platform</td>
                         <td>VDO Recording</td>
-                        <td colspan="12" class="confirmed">Career Explorer</td>
-                        <td><a href="#" class="training-link">Automation Module3</a></td>
+                        <td>Career Explorer</td>
+                        <td colspan="12" class="confirmed">SharePoint</td>
+                        <td></td>
                     </tr>
-
-                    <!-- Data Analytics -->
                     <tr>
                         <td>Data Analytics (Specific participants)</td>
                         <td>On-line</td>
@@ -229,60 +455,60 @@ training: {
                         <td></td>
                     </tr>
                     <tr>
-                        <td><strong>Data Analytics (All can learn)</strong></td>
-                        <td colspan="2" style="text-align: left;">B1 Python</td>
+                        <td style="padding-left: 15px;">B1 Python</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">B4 Database Management</td>
+                        <td style="padding-left: 15px;">B2 Basic Mathematics</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
-                        <td><a href="#" class="training-link">B4: Database Management Systems</a></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">B2 Basic Mathematics</td>
+                        <td style="padding-left: 15px;">B3 Image Processing</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
-                        <td><a href="#" class="training-link">B2: Basic Math</a></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">D7 Business Intelligence</td>
+                        <td style="padding-left: 15px;">B4 Database Management</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
-                        <td><a href="#" class="training-link">D7: Business Intelligence</a></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">B3 Image Processing</td>
+                        <td style="padding-left: 15px;">D4 Machine Learning/Deep Learning</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
-                        <td><a href="#" class="training-link">B3: Image Processing</a></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">D5 Data Modeling & Optimization</td>
+                        <td style="padding-left: 15px;">D5 Data Modeling & Optimization</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
-                        <td><a href="#" class="training-link">D5: Data Modeling</a></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">D4 Machine Learning/Deep Learning</td>
+                        <td style="padding-left: 15px;">D6 Artificial Intelligence</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
-                        <td><a href="#" class="training-link">D4: ML-DL</a></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: left;">D6 Artificial Intelligence</td>
+                        <td style="padding-left: 15px;">D7 Business Intelligence</td>
                         <td>VDO Recording</td>
+                        <td>Career Explorer</td>
                         <td colspan="12" class="confirmed">SharePoint</td>
-                        <td><a href="#" class="training-link">D6: Artificial Intelligence</a></td>
+                        <td></td>
                     </tr>
 
                     <!-- Soft Skills -->
@@ -359,70 +585,16 @@ training: {
                 </tbody>
             </table>
         </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
-            <div style="padding: 15px; background: #e8f5e9; border-radius: 10px; border-left: 4px solid #4caf50;">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                    <div style="width: 20px; height: 20px; background: #a5d6a7; border-radius: 3px;"></div>
-                    <strong>Confirmed Plan</strong>
-                </div>
-                <p style="font-size: 0.85em; color: #666; margin: 0;">หลักสูตรที่ยืนยันแล้ว</p>
-            </div>
-            <div style="padding: 15px; background: #fffde7; border-radius: 10px; border-left: 4px solid #ffc107;">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                    <div style="width: 20px; height: 20px; background: #fff59d; border-radius: 3px;"></div>
-                    <strong>Tentative Plan</strong>
-                </div>
-                <p style="font-size: 0.85em; color: #666; margin: 0;">อยู่ระหว่างวางแผน</p>
-            </div>
-            <div style="padding: 15px; background: #fafafa; border-radius: 10px; border-left: 4px solid #9e9e9e;">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                    <div style="width: 20px; height: 20px; background: #e0e0e0; border-radius: 3px;"></div>
-                    <strong>Done/Nominated</strong>
-                </div>
-                <p style="font-size: 0.85em; color: #666; margin: 0;">เสร็จแล้วหรือมีการเสนอชื่อ</p>
-            </div>
-        </div>
-
-        <div class="service-info" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
-            <h3 style="color: #1565c0;">📚 วิธีการลงทะเบียนอบรม</h3>
-            <ul style="margin: 10px 0 0 20px; color: #666; line-height: 1.8;">
-                <li><strong>Per request:</strong> ขอเปิดหลักสูตรตามความต้องการ</li>
-                <li><strong>FIFO (First In First Out):</strong> ลงทะเบียนก่อนได้สิทธิ์ก่อน</li>
-                <li><strong>HoDs nominated:</strong> หัวหน้าแผนกเป็นผู้คัดเลือกและเสนอชื่อ</li>
-                <li><strong>Distributed Quota:</strong> มีโควต้าจำกัดแบ่งตาม Level (PM105-108)</li>
-                <li><strong>Career Explorer:</strong> เรียนออนไลน์ได้ตลอดเวลาผ่าน SharePoint</li>
-            </ul>
-        </div>
-
-        <div class="service-info" style="background: #f3e5f5; border-left: 4px solid #9c27b0;">
-            <h3 style="color: #6a1b9a;">🎯 หมวดหมู่หลักสูตร</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 10px;">
-                <div>
-                    <strong style="color: #1976d2;">🔵 CI Skills</strong>
-                    <p style="font-size: 0.85em; color: #666; margin: 5px 0 0 0;">Kaizen, QCC, Lean Six Sigma</p>
-                </div>
-                <div>
-                    <strong style="color: #f57c00;">🟠 Fundamental Hard Skills</strong>
-                    <p style="font-size: 0.85em; color: #666; margin: 5px 0 0 0;">SPC, MSA, FMEA, 8D/RCA</p>
-                </div>
-                <div>
-                    <strong style="color: #7b1fa2;">🟣 Functional Hard Skills</strong>
-                    <p style="font-size: 0.85em; color: #666; margin: 5px 0 0 0;">Automation, Data Analytics, AI</p>
-                </div>
-                <div>
-                    <strong style="color: #388e3c;">🟢 Soft Skills</strong>
-                    <p style="font-size: 0.85em; color: #666; margin: 5px 0 0 0;">Leadership, EQ, Strategic Management</p>
-                </div>
-            </div>
-        </div>
         
-        <div class="action-buttons">
+        <div class="action-buttons" style="margin-top: 30px;">
             <button class="primary-btn" onclick="alert('กำลังเชื่อมต่อระบบลงทะเบียน LMS...')">
                 📝 ลงทะเบียนอบรม
             </button>
             <button class="secondary-btn" onclick="window.open('#', '_blank')">
                 📚 Career Explorer (SharePoint)
+            </button>
+            <button class="secondary-btn" onclick="window.print()">
+                🖨️ พิมพ์ตารางอบรม
             </button>
         </div>
     `
